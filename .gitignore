@@ -1,0 +1,15 @@
+# 缓存与日志
+**/cache/
+**/Cache/
+**/logs/
+**/*.log
+**/*.sqlite*
+**/*.db
+
+# 敏感数据
+**/.env
+**/*.pem
+**/*.key
+**/*token*
+**/*secret*
+**/*credentials*

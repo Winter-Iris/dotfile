@@ -1,0 +1,159 @@
+# ~/.config/starship.toml
+# Dreamy Sakura (梦幻樱花粉 / 圆点分隔 / 100%纯文本 / 顶行右侧时间)
+
+command_timeout = 1500
+add_newline = true
+
+# 顶行：左侧信息 (使用 • 作为动态前缀分隔) + $fill (空白填充) + 右侧时间
+# 底行：仅保留转角与输入提示符
+format = """
+[┌](bold #7f7099) \
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_status\
+$git_state\
+$package\
+$c\
+$golang\
+$java\
+$nodejs\
+$rust\
+$python\
+$conda\
+$docker_context\
+$memory_usage\
+$cmd_duration\
+$fill\
+$time\
+$line_break\
+[└](bold #7f7099) $character"""
+
+# ================= 自动填充与时间 (顶行右侧) =================
+
+[fill]
+symbol = " "
+
+[time]
+disabled = false
+time_format = "%R"
+style = "bold #d8b4f8"
+format = "[$time]($style)"
+
+# ================= 系统与路径 =================
+
+[os]
+disabled = true
+
+[username]
+show_always = true
+style_user = "bold #ffb7c5"
+style_root = "bold #ff6b8b"
+format = "[「$user」]($style)"
+
+[hostname]
+ssh_only = true
+style = "bold #d8b4f8"
+format = "[@$hostname]($style)"
+
+[directory]
+truncation_length = 4
+truncation_symbol = ".../"
+read_only = " [RO]"
+style = "bold #cba6f7"
+format = " [•](bold #7f7099) [$path]($style)[$read_only]($read_only_style)"
+
+# ================= Git 模块 (纯文本前缀) =================
+
+[git_branch]
+symbol = ""
+style = "bold #ff85a2"
+format = " [•](bold #7f7099) [git:$branch]($style)"
+
+[git_status]
+style = "bold #f5c2e7"
+format = '([ ‹$all_status$ahead_behind›]($style))'
+conflicted = "="
+ahead = "+${count}"
+behind = "-${count}"
+diverged = "<>"
+untracked = "?${count}"
+modified = "!${count}"
+staged = "+${count}"
+renamed = "r"
+deleted = "x"
+stashed = "*"
+up_to_date = ""
+
+[git_state]
+style = "bold #f9e2af"
+format = '([ ($state( $progress_current/$progress_total))]($style))'
+
+# ================= 编程语言与环境 (纯文本标签) =================
+
+[package]
+symbol = ""
+style = "bold #ffc6ff"
+format = " [•](bold #7f7099) [pkg:$version]($style)"
+
+[nodejs]
+symbol = ""
+style = "bold #b8f2e6"
+format = " [•](bold #7f7099) [node:$version]($style)"
+
+[rust]
+symbol = ""
+style = "bold #ffc6ff"
+format = " [•](bold #7f7099) [rust:$version]($style)"
+
+[python]
+symbol = ""
+style = "bold #fde2e4"
+format = ' [•](bold #7f7099) [py:${version}( \($virtualenv\))]($style)'
+
+[conda]
+symbol = ""
+style = "bold #b8f2e6"
+format = " [•](bold #7f7099) [conda:$environment]($style)"
+
+[golang]
+symbol = ""
+style = "bold #a6d1ff"
+format = " [•](bold #7f7099) [go:$version]($style)"
+
+[c]
+symbol = ""
+style = "bold #bdb2ff"
+format = " [•](bold #7f7099) [c:$version]($style)"
+
+[java]
+symbol = ""
+style = "bold #ffadad"
+format = " [•](bold #7f7099) [java:$version]($style)"
+
+[docker_context]
+symbol = ""
+style = "bold #a6d1ff"
+format = " [•](bold #7f7099) [docker:$context]($style)"
+
+# ================= 硬件状态与耗时 =================
+
+[memory_usage]
+disabled = false
+threshold = 75
+symbol = ""
+style = "bold #ff85a2"
+format = " [•](bold #7f7099) [RAM ${ram_pct}]($style)"
+
+[cmd_duration]
+min_time = 2_000
+style = "bold #f5c2e7"
+format = " [•](bold #7f7099) [$duration]($style)"
+
+# ================= 底部输入栏 =================
+
+[character]
+success_symbol = "[❯](bold #ffb7c5)"
+error_symbol = "[(>_<) ❯](bold #ff6b8b)"
+vimcmd_symbol = "[❮](bold #cba6f7)"
