@@ -31,11 +31,11 @@
             "title": "Google Sans Flex"
         },
         "palette": {
-            "accentColor": "#B4ADC4",
-            "namedScheme": "catppuccin",
-            "namedSchemePrimary": "pink",
+            "accentColor": "",
+            "namedScheme": "",
+            "namedSchemePrimary": "",
             "namedSchemeSecondary": "",
-            "type": "scheme-expressive"
+            "type": "scheme-content"
         },
         "transparency": {
             "automatic": true,
@@ -75,7 +75,7 @@
         }
     },
     "background": {
-        "blurRadius": 32,
+        "blurRadius": 8.931672403003756,
         "centeredWallpaper": false,
         "centeredWallpaperColor": "primaryContainer",
         "centeredWallpaperImage": "",
@@ -91,7 +91,7 @@
             "radius": 30,
             "tree": "{\"t\":\"leaf\",\"id\":1,\"img\":\"\"}"
         },
-        "enableWallpaperPreview": false,
+        "enableWallpaperPreview": true,
         "hideWhenFullscreen": true,
         "lockWall": "",
         "parallax": {
@@ -109,19 +109,19 @@
         "showSnapLines": true,
         "splitRatio": "100",
         "splitSide": "left",
-        "thumbnailPath": "",
+        "thumbnailPath": "/home/irisyuki/.config/hypr/custom/scripts/mpvpaper_thumbnails/1080p-60fps.mp4.jpg",
         "wallpaperAnimation": "magic",
-        "wallpaperPath": "/home/irisyuki/图片/Wallpapers/147530510_p0.jpg",
+        "wallpaperPath": "/home/irisyuki/图片/Wallpapers/1080p-60fps.mp4",
         "widgets": {
             "blurRadius": 32,
-            "blurWidgets": true,
+            "blurWidgets": false,
             "calendar": {
                 "enable": true,
                 "placementStrategy": "free",
                 "sizeMode": "2x2",
-                "x": 216,
-                "y": 216,
-                "z": 27
+                "x": 1632,
+                "y": 816,
+                "z": 35
             },
             "clock": {
                 "color": "",
@@ -216,9 +216,9 @@
                 "showLyrics": false,
                 "showTitles": true,
                 "sizeMode": "1x3",
-                "x": 2124,
+                "x": 1500,
                 "y": 72,
-                "z": 22
+                "z": 33
             },
             "menuHidden": [
             ],
@@ -234,8 +234,8 @@
                 "placementStrategy": "free",
                 "vertical": true,
                 "x": 36,
-                "y": 228,
-                "z": 26
+                "y": 216,
+                "z": 30
             },
             "shadow": true,
             "sticker": {
@@ -271,9 +271,9 @@
                 "enable": false,
                 "placementStrategy": "free",
                 "sizeMode": "1x2",
-                "x": 400,
-                "y": 100,
-                "z": 0
+                "x": 480,
+                "y": 60,
+                "z": 35
             },
             "visualizer": {
                 "colorSource": "theme",
@@ -294,7 +294,7 @@
                 "sizeMode": "1x3",
                 "x": 36,
                 "y": 60,
-                "z": 24
+                "z": 34
             },
             "worldClock": {
                 "clockCount": 4,
@@ -737,7 +737,6 @@
         "borderColor": "layer0Border",
         "borderSize": 1,
         "collapsedSections": [
-            "壁纸"
         ],
         "style": "default"
     },
@@ -748,7 +747,7 @@
         "banner": true,
         "bannerFocusX": 0.5,
         "bannerFocusY": 0.5,
-        "bannerImage": "",
+        "bannerImage": "/home/irisyuki/.config/hypr/custom/scripts/mpvpaper_thumbnails/bda701b9e206e31c.jpg",
         "booru": {
             "allowNsfw": false,
             "defaultProvider": "yandere",

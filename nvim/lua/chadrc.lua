@@ -33,6 +33,7 @@ local c = {
 
 M.base46 = {
   theme = "catppuccin",
+  transparency = true,
 
   changed_themes = {
     all = {},
