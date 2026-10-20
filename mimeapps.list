@@ -1,0 +1,5 @@
+
+[Default Applications]
+x-scheme-handler/clash=clash-verge.desktop;
+x-scheme-handler/clash-verge=clash-verge.desktop;
+x-scheme-handler/everest=/home/irisyuki/.local/share/applications/Olympus.desktop

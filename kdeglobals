@@ -1,0 +1,169 @@
+[ColorEffects:Disabled]
+ChangeSelectionColor=
+Color=#313244
+ColorAmount=0.5
+ColorEffect=3
+ContrastAmount=0
+ContrastEffect=0
+Enable=
+IntensityAmount=0
+IntensityEffect=0
+
+[ColorEffects:Inactive]
+ChangeSelectionColor=true
+Color=#11111b
+ColorAmount=0.025
+ColorEffect=0
+ContrastAmount=0.1
+ContrastEffect=0
+Enable=true
+IntensityAmount=0
+IntensityEffect=0
+
+[Colors:Button]
+BackgroundAlternate=#45475a
+BackgroundNormal=#313244
+DecorationFocus=#f5c2e7
+DecorationHover=#f5c2e7
+ForegroundActive=#f5c2e7
+ForegroundInactive=#a6adc8
+ForegroundLink=#89b4fa
+ForegroundNegative=#f38ba8
+ForegroundNeutral=#f9e2af
+ForegroundNormal=#cdd6f4
+ForegroundPositive=#a6e3a1
+ForegroundVisited=#f5c2e7
+
+[Colors:Complementary]
+BackgroundAlternate=#11111b
+BackgroundNormal=#181825
+DecorationFocus=#f5c2e7
+DecorationHover=#f5c2e7
+ForegroundActive=#f5c2e7
+ForegroundInactive=#a6adc8
+ForegroundLink=#89b4fa
+ForegroundNegative=#f38ba8
+ForegroundNeutral=#f9e2af
+ForegroundNormal=#cdd6f4
+ForegroundPositive=#a6e3a1
+ForegroundVisited=#f5c2e7
+
+[Colors:Header]
+BackgroundAlternate=#1e1e2e
+BackgroundNormal=#181825
+DecorationFocus=#f5c2e7
+DecorationHover=#f5c2e7
+ForegroundActive=#f5c2e7
+ForegroundInactive=#a6adc8
+ForegroundLink=#89b4fa
+ForegroundNegative=#f38ba8
+ForegroundNeutral=#f9e2af
+ForegroundNormal=#cdd6f4
+ForegroundPositive=#a6e3a1
+ForegroundVisited=#f5c2e7
+
+[Colors:Selection]
+BackgroundAlternate=#5e4f66
+BackgroundNormal=#f5c2e7
+DecorationFocus=#f5c2e7
+DecorationHover=#f5c2e7
+ForegroundActive=#11111b
+ForegroundInactive=#11111b
+ForegroundLink=#11111b
+ForegroundNegative=#11111b
+ForegroundNeutral=#11111b
+ForegroundNormal=#11111b
+ForegroundPositive=#11111b
+ForegroundVisited=#11111b
+
+[Colors:Tooltip]
+BackgroundAlternate=#313244
+BackgroundNormal=#45475a
+DecorationFocus=#f5c2e7
+DecorationHover=#f5c2e7
+ForegroundActive=#f5c2e7
+ForegroundInactive=#a6adc8
+ForegroundLink=#89b4fa
+ForegroundNegative=#f38ba8
+ForegroundNeutral=#f9e2af
+ForegroundNormal=#cdd6f4
+ForegroundPositive=#a6e3a1
+ForegroundVisited=#f5c2e7
+
+[Colors:View]
+BackgroundAlternate=#1e1e2e
+BackgroundNormal=#11111b
+DecorationFocus=#f5c2e7
+DecorationHover=#f5c2e7
+ForegroundActive=#f5c2e7
+ForegroundInactive=#a6adc8
+ForegroundLink=#89b4fa
+ForegroundNegative=#f38ba8
+ForegroundNeutral=#f9e2af
+ForegroundNormal=#cdd6f4
+ForegroundPositive=#a6e3a1
+ForegroundVisited=#f5c2e7
+
+[Colors:Window]
+BackgroundAlternate=#181825
+BackgroundNormal=#1e1e2e
+DecorationFocus=#f5c2e7
+DecorationHover=#f5c2e7
+ForegroundActive=#f5c2e7
+ForegroundInactive=#a6adc8
+ForegroundLink=#89b4fa
+ForegroundNegative=#f38ba8
+ForegroundNeutral=#f9e2af
+ForegroundNormal=#cdd6f4
+ForegroundPositive=#a6e3a1
+ForegroundVisited=#f5c2e7
+
+[General]
+ColorScheme=IllogicalNamed
+ColorSchemeHash=2845cafcbac50ddaa414597bb24d892adfb0388d
+LastUsedCustomAccentColor=184,117,220
+TerminalApplication=kitty -1
+XftHintStyle=hintslight
+XftSubPixel=none
+fixed=JetBrainsMono Nerd Font,13,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+font=Google Sans Flex,13,-1,5,500,0,0,0,0,0,0,0,0,0,0,1,Medium
+menuFont=Google Sans Flex,13,-1,5,500,0,0,0,0,0,0,0,0,0,0,1,Medium
+smallestReadableFont=Google Sans Flex,11,-1,5,500,0,0,0,0,0,0,0,0,0,0,1,Medium
+toolBarFont=Google Sans Flex,13,-1,5,500,0,0,0,0,0,0,0,0,0,0,1,Medium
+
+[Icons]
+Theme=breeze-plus-dark
+
+[KDE]
+contrast=4
+frameContrast=0.2
+widgetStyle=Darkly
+
+[KFileDialog Settings]
+Allow Expansion=false
+Automatically select filename extension=true
+Breadcrumb Navigation=true
+Decoration position=2
+Show Full Path=false
+Show Inline Previews=true
+Show Preview=false
+Show Speedbar=true
+Show hidden files=true
+Sort by=Name
+Sort directories first=true
+Sort hidden files last=false
+Sort reversed=false
+Speedbar Width=168
+View Style=DetailTree
+
+[Sounds]
+Theme=freedesktop
+
+[WM]
+activeBackground=24,24,37
+activeBlend=205,214,244
+activeFont=Google Sans Flex,10,-1,5,500,0,0,0,0,0,0,0,0,0,0,1,Medium
+activeForeground=205,214,244
+inactiveBackground=30,30,46
+inactiveBlend=166,173,200
+inactiveForeground=166,173,200
