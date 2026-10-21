@@ -2,6 +2,29 @@
 
 CachyOS / Arch Linux 的 Hyprland 桌面与开发配置。提供交互式安装器，并锁定外部源码和直接依赖版本。
 
+## 预览
+
+[![Hyprland 桌面概览](dotfiles-assets/gallery/desktop1.png)](dotfiles-assets/gallery/desktop1.png)
+
+<table>
+  <tr>
+    <td width="50%">
+      <a href="dotfiles-assets/gallery/desktop2.png">
+        <img src="dotfiles-assets/gallery/desktop2.png" alt="Quickshell 智能助手与控制中心侧栏">
+      </a>
+    </td>
+    <td width="50%">
+      <a href="dotfiles-assets/gallery/nvim.png">
+        <img src="dotfiles-assets/gallery/nvim.png" alt="Kitty 中的 Neovim 开发环境">
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">Quickshell 侧栏</td>
+    <td align="center">Neovim 开发环境</td>
+  </tr>
+</table>
+
 ## 组成
 
 | 用途 | 组件 |
