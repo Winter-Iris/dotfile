@@ -109,9 +109,9 @@
         "showSnapLines": true,
         "splitRatio": "100",
         "splitSide": "left",
-        "thumbnailPath": "/home/irisyuki/.config/hypr/custom/scripts/mpvpaper_thumbnails/1080p-60fps.mp4.jpg",
+        "thumbnailPath": "",
         "wallpaperAnimation": "magic",
-        "wallpaperPath": "/home/irisyuki/图片/Wallpapers/1080p-60fps.mp4",
+        "wallpaperPath": "/home/irisyuki/.config/dotfiles-assets/wallpapers/miku.jpg",
         "widgets": {
             "blurRadius": 32,
             "blurWidgets": false,
@@ -664,8 +664,8 @@
         "weeb": 1
     },
     "profile": {
-        "avatarPath": "/home/irisyuki/图片/",
-        "avatarPicture": "/home/irisyuki/图片/128092824_p0_master1200.jpg",
+        "avatarPath": "/home/irisyuki/.config/dotfiles-assets",
+        "avatarPicture": "/home/irisyuki/.config/dotfiles-assets/avatar.jpg",
         "descriptionText": "::distro::",
         "displayName": "",
         "onlinePresets": true,
@@ -747,7 +747,7 @@
         "banner": true,
         "bannerFocusX": 0.5,
         "bannerFocusY": 0.5,
-        "bannerImage": "/home/irisyuki/.config/hypr/custom/scripts/mpvpaper_thumbnails/bda701b9e206e31c.jpg",
+        "bannerImage": "/home/irisyuki/.config/dotfiles-assets/wallpapers/miku.jpg",
         "booru": {
             "allowNsfw": false,
             "defaultProvider": "yandere",

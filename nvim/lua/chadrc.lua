@@ -205,6 +205,30 @@ M.base46 = {
   },
 }
 
+-- Notification colors belong to the theme, including after Base46 reloads.
+M.base46.hl_add = M.base46.hl_add or {}
+local notification_hl = M.base46.hl_add
+notification_hl.SnacksNotifierHistory = { fg = c.white, bg = c.darker_black }
+notification_hl.SnacksNotifierHistoryTitle = { fg = c.pink, bold = true }
+notification_hl.SnacksNotifierHistoryDateTime = { fg = c.purple }
+notification_hl.SnacksNotifierMinimal = { fg = c.white, bg = c.darker_black }
+for level, color in pairs({ Info = c.pink, Warn = c.yellow, Error = c.red, Debug = c.purple, Trace = c.cyan }) do
+  notification_hl["SnacksNotifier" .. level] = { fg = c.white, bg = c.darker_black }
+  notification_hl["SnacksNotifierBorder" .. level] = { fg = c.pink, bg = c.darker_black }
+  notification_hl["SnacksNotifierTitle" .. level] = { fg = color, bg = c.darker_black, bold = true }
+  notification_hl["SnacksNotifierIcon" .. level] = { fg = color, bg = c.darker_black }
+  notification_hl["SnacksNotifierFooter" .. level] = { fg = color, bg = c.darker_black }
+end
+for _, group in ipairs({ "NoiceCmdlinePopup", "NoicePopup", "NoiceMini", "NoiceSplit", "NoicePopupmenu" }) do
+  notification_hl[group] = { fg = c.white, bg = c.darker_black }
+end
+for _, group in ipairs({ "NoiceCmdlinePopupBorder", "NoicePopupBorder", "NoiceSplitBorder", "NoicePopupmenuBorder" }) do
+  notification_hl[group] = { fg = c.pink, bg = c.darker_black }
+end
+notification_hl.NoiceCmdlineIcon = { fg = c.pink }
+notification_hl.NoiceCmdlinePopupTitle = { fg = c.pink, bold = true }
+notification_hl.NoicePopupmenuSelected = { fg = c.darker_black, bg = c.pink }
+
 -- Telescope
 M.ui = {
   telescope = {
@@ -223,5 +247,27 @@ M.term = {
     border = "rounded",
   },
 }
+
+-- SQL query buffers can have their ftplugin options reset during loading.
+-- Check again after filetype handlers finish, and when returning to a buffer.
+local sql_filetypes = { sql = true, mysql = true, plsql = true }
+local function ensure_sql_commentstring(buf)
+  if vim.api.nvim_buf_is_valid(buf)
+    and sql_filetypes[vim.bo[buf].filetype]
+    and vim.bo[buf].commentstring == ""
+  then
+    vim.bo[buf].commentstring = "-- %s"
+  end
+end
+
+vim.api.nvim_create_autocmd({ "FileType", "BufEnter" }, {
+  group = vim.api.nvim_create_augroup("SqlCommentString", { clear = true }),
+  callback = function(event)
+    ensure_sql_commentstring(event.buf)
+    vim.schedule(function()
+      ensure_sql_commentstring(event.buf)
+    end)
+  end,
+})
 
 return M

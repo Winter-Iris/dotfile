@@ -106,7 +106,7 @@ local options = {
     excluded_groups = { "terminal (t)", "autopairs", "Nvim", "Opens" }, -- can add group name or with mode
   },
 
-  mason = { pkgs = {}, skip = {} },
+  mason = { pkgs = { "sqls@0.2.48" }, skip = {} },
 
   colorify = {
     enabled = true,

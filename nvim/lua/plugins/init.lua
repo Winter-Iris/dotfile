@@ -1,5 +1,12 @@
 -- ~/.config/nvim/lua/plugins/init.lua
 return {
+  {
+    "hrsh7th/nvim-cmp",
+    opts = function(_, opts)
+      return require("configs.cmp").setup(opts)
+    end,
+  },
+
   -- 1. 代码格式化插件 (默认只配了 lua，后期可在 lua/configs/conform.lua 中扩展)
   {
     "stevearc/conform.nvim",
@@ -26,4 +33,11 @@ return {
       },
     },
   },
+
+  {
+    "nanotee/sqls.nvim",
+    lazy = false,
+    ft = { "sql" },
+  },
+
 }

@@ -55,11 +55,11 @@ map("n", "<leader>rr", function()
     return
   end
 
-  require("nvchad.term").toggle {
+  require("nvchad.term").runner {
     id = "code_runner",
     pos = "float",
     cmd = function() return cmd end,
-    clear_cmd = true,
+    clear_cmd = "clear; ",
     float_opts = { border = "rounded" },
   }
 end, { desc = "Run current file" })

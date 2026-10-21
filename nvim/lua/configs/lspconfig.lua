@@ -11,6 +11,7 @@ local servers = {
   "ruff",           -- 对应 ruff (Python Linter/Formatter)
   "pyright",        -- 对应 pyright (Python LSP)
   "clangd",         -- 对应 clangd (C/C++)
+  "sqls",
 }
 
 if vim.lsp.enable then

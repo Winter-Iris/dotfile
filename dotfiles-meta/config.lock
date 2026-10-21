@@ -1,0 +1,30 @@
+# kind  path
+# 本仓库中的文件由 dotfiles 仓库自身提交哈希固定。
+local	Kvantum
+local	btop
+local	cava
+local	dotfiles-assets
+local	fastfetch
+local	fish
+local	fontconfig
+local	fuzzel
+local	gtk-3.0
+local	gtk-4.0
+local	gtkrc
+local	gtkrc-2.0
+local	hypr
+local	illogical-impulse
+local	kdeglobals
+local	kitty
+local	matugen
+local	mimeapps.list
+local	mpv
+local	nvim
+local	starship.toml
+local	wlogout
+local	xsettingsd
+local	zshrc.d
+
+# kind  name  url  revision  repository subdirectory  target under ~/.config
+git	ii	https://github.com/end-4/dots-hyprland.git	c4f0582cbf4ad29607dbf3c20337815de8690b34	dots/.config/quickshell/ii	quickshell/ii
+git	end4-pC	https://github.com/pctrade/end4-pC.git	09f0bc4f8a837226d9922db248ecea77fa69f6ba	.	quickshell/end4-pC

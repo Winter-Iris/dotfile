@@ -1,3 +1,7 @@
+# Keep user-installed commands available without storing an absolute HOME in
+# fish_variables.
+fish_add_path --path "$HOME/.local/bin"
+
 # Commands to run in interactive sessions can go here
 if status is-interactive
     # No greeting

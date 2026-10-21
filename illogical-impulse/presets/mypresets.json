@@ -75,7 +75,7 @@
     "splitSide": "left",
     "thumbnailPath": "",
     "wallpaperAnimation": "magic",
-    "wallpaperPath": "/home/irisyuki/图片/Wallpapers/wallhaven-vqggo8.jpg",
+    "wallpaperPath": "/home/irisyuki/.config/dotfiles-assets/wallpapers/miku.jpg",
     "widgets": {
       "blurRadius": 32,
       "blurWidgets": true,
@@ -562,8 +562,8 @@
     "weeb": 1
   },
   "profile": {
-    "avatarPath": "/home/irisyuki/图片/",
-    "avatarPicture": "/home/irisyuki/图片/wallhaven-w82r77.jpg",
+    "avatarPath": "/home/irisyuki/.config/dotfiles-assets",
+    "avatarPicture": "/home/irisyuki/.config/dotfiles-assets/avatar.jpg",
     "descriptionText": "::distro::",
     "displayName": ""
   },
@@ -606,7 +606,7 @@
     "banner": true,
     "bannerFocusX": 0.5,
     "bannerFocusY": 0.5,
-    "bannerImage": "",
+    "bannerImage": "/home/irisyuki/.config/dotfiles-assets/wallpapers/miku.jpg",
     "bottomGroup": true,
     "cornerOpen": {
       "bottom": false,
