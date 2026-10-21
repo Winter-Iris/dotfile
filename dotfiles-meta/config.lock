@@ -3,7 +3,8 @@
 local	Kvantum
 local	btop
 local	cava
-local	dotfiles-assets
+local	dotfiles-assets/avatar.jpg
+local	dotfiles-assets/wallpapers
 local	fastfetch
 local	fish
 local	fontconfig
