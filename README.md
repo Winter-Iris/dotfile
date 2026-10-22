@@ -56,7 +56,7 @@ cd ~/dotfile
 
 ### end4-pC 自定义组件
 
-仓库的 [`dotfiles-custom/end4-pC`](dotfiles-custom/end4-pC/README.md) 独立保存自定义小组件、原组件样式覆盖和设置页面。安装 `end4-pC` 后，从本仓库运行：
+仓库的 [`dotfiles-custom/end4-pC`](dotfiles-custom/end4-pC/README.md) 独立保存自定义小组件、原组件样式覆盖和设置页面。运行 `./install.sh` 安装配置时，如果目标目录已有 `end4-pC`（包括本次选择下载的版本），安装器会自动接入自定义层。也可从本仓库手动运行：
 
 ```bash
 ./dotfiles-custom/end4-pC/install-custom.sh
@@ -64,7 +64,7 @@ cd ~/dotfile
 
 脚本会将自定义代码复制到 `~/.config/quickshell/end4-pC/custom/`，并为 Settings 和通知中心加入小型加载接口；可重复运行。打开 Settings → 自定义组件，可切换通知中心的自定义无通知样式（`notification_empty.png`、“暂无通知 / 好好休息一下吧~”），关闭开关则恢复上游样式。设置值单独保存在 `~/.config/illogical-impulse/custom-components.json`，不写入上游配置。
 
-自定义代码以仓库中的目录为准，不要直接编辑安装后的副本。更新上游 `end4-pC` 后重新运行上述脚本；如果接口补丁与新版代码冲突，脚本会停止，需要先调整补丁再安装。当前 `install.sh` 不会自动执行这一步。
+自定义代码以仓库中的目录为准，不要直接编辑安装后的副本。单独更新上游 `end4-pC` 后重新运行上述脚本；如果接口补丁与新版代码冲突，脚本会停止，需要先调整补丁再安装。
 
 ## 壁纸
 

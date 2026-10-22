@@ -253,6 +253,11 @@ fi
 if [[ "$INSTALL_CONFIG" == true ]]; then
     install_local_configs
     [[ "$INSTALL_UPSTREAM" == false ]] || install_upstream_configs
+    if [[ -f "$CONFIG_DIR/quickshell/end4-pC/shell.qml" ]]; then
+        "$REPO_DIR/dotfiles-custom/end4-pC/install-custom.sh" "$CONFIG_DIR/quickshell/end4-pC"
+    else
+        echo "[SKIP] 未安装 end4-pC，跳过自定义组件"
+    fi
     rewrite_home_paths
     echo
     echo "配置安装完成。覆盖文件备份在：$BACKUP_DIR"
