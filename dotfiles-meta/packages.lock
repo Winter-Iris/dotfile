@@ -10,6 +10,7 @@ repo	fish	4.9.3-1
 repo	starship	1.27.0-1
 repo	matugen	4.2.0-1.1
 repo	ffmpeg	2:9.0.2-2.1
+repo	ffmpegthumbnailer	2.3.1-1.1
 repo	mpvpaper	1.9-1
 repo	jq	1.8.2-1.1
 repo	fuzzel	1.15.0-1.1
@@ -59,6 +60,7 @@ repo	ripgrep	15.2.0-1
 repo	songrec	0.7.5-1.1
 repo	syntax-highlighting	6.31.0-1.1
 repo	translate-shell	0.9.7.1-2
+repo	util-linux	2.42.4-1.1
 repo	wayland	1.26.0-1.1
 repo	wget	1.25.0-6.1
 repo	wlogout	1.2.2-0

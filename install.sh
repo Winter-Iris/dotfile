@@ -9,14 +9,8 @@ BACKUP_DIR="$STATE_DIR/backups/$(date +%Y%m%d-%H%M%S)-$$"
 CONFIG_LOCK="$REPO_DIR/dotfiles-meta/config.lock"
 PACKAGE_LOCK="$REPO_DIR/dotfiles-meta/packages.lock"
 SOURCE_HOME="/home/irisyuki"
-WORK_DIR=""
 SOURCE_CHECKOUT=""
 WORK_DIRS=()
-
-if (( $# != 0 )); then
-    echo "本安装器不接受命令行参数；请直接运行：$0" >&2
-    exit 2
-fi
 
 cleanup() {
     local dir
@@ -145,17 +139,26 @@ install_upstream_configs() {
         return 1
     }
 
-    WORK_DIR="$(mktemp -d "${TMPDIR:-/tmp}/dotfiles-install.XXXXXX")"
-    WORK_DIRS+=("$WORK_DIR")
+    local work_dir
+    work_dir="$(mktemp -d "${TMPDIR:-/tmp}/dotfiles-install.XXXXXX")"
+    WORK_DIRS+=("$work_dir")
     while IFS=$'\t' read -r kind name url revision subdir target; do
         [[ -z "$kind" || "$kind" == \#* || "$kind" != "git" ]] && continue
-        local checkout="$WORK_DIR/$name"
+        local checkout="$work_dir/$name"
         echo "[FETCH] $name @ ${revision:0:12}"
         git init --quiet "$checkout"
         git -C "$checkout" remote add origin "$url"
         git -C "$checkout" fetch --quiet --depth 1 origin "$revision"
         git -C "$checkout" checkout --quiet --detach FETCH_HEAD
         git -C "$checkout" submodule update --init --recursive --depth 1 --quiet
+
+        local patch_file="$REPO_DIR/dotfiles-meta/patches/$name.patch"
+        if [[ -f "$patch_file" ]]; then
+            echo "[PATCH] $name"
+            git -C "$checkout" apply --check "$patch_file"
+            git -C "$checkout" apply "$patch_file"
+        fi
+
         install_tree "$checkout/$subdir" "$CONFIG_DIR/$target" "$target"
     done < "$CONFIG_LOCK"
 }
@@ -202,7 +205,7 @@ install_locked_dependencies() {
         return 1
     }
 
-    local source package expected candidate
+    local source package expected candidate work_dir
     local -a repo_packages=() source_packages=()
     echo "正在预检软件源中的版本……"
     while IFS=$'\t' read -r source package expected; do
@@ -214,9 +217,9 @@ install_locked_dependencies() {
                 ;;
             source)
                 if [[ -z "$SOURCE_CHECKOUT" ]]; then
-                    WORK_DIR="$(mktemp -d "${TMPDIR:-/tmp}/dotfiles-build.XXXXXX")"
-                    WORK_DIRS+=("$WORK_DIR")
-                    SOURCE_CHECKOUT="$WORK_DIR/dots-hyprland"
+                    work_dir="$(mktemp -d "${TMPDIR:-/tmp}/dotfiles-build.XXXXXX")"
+                    WORK_DIRS+=("$work_dir")
+                    SOURCE_CHECKOUT="$work_dir/dots-hyprland"
                     git init --quiet "$SOURCE_CHECKOUT"
                     git -C "$SOURCE_CHECKOUT" remote add origin https://github.com/end-4/dots-hyprland.git
                     git -C "$SOURCE_CHECKOUT" fetch --quiet --depth 1 origin c4f0582cbf4ad29607dbf3c20337815de8690b34

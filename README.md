@@ -52,7 +52,7 @@ cd ~/dotfile
 - 下载固定版本的 Quickshell 配置
 - 跳过、核对或安装依赖
 
-安装器不接受命令行参数。覆盖前的配置保存在 `~/.local/state/dotfiles/backups/`。依赖自动安装仅支持 CachyOS。
+直接运行 `./install.sh` 并按提示选择即可。覆盖前的配置保存在 `~/.local/state/dotfiles/backups/`。依赖自动安装仅支持 CachyOS。
 
 ## 壁纸命令
 
@@ -66,7 +66,7 @@ wallpaper "$HOME/Videos/Live Wallpapers/miku.webm"
 
 图片支持 PNG、JPG、JPEG、WebP 和 BMP；视频支持 MP4、MKV、WebM、MOV 和 AVI。
 
-视频会交给 Quickshell 和 `mpvpaper` 播放，并由 FFmpeg 生成侧栏封面。此命令需要正在运行的 `end4-pC`，相关依赖已写入软件包锁文件。
+视频由 `mpvpaper` 播放，并由 FFmpeg 生成侧栏封面。`wallpaper` 与 Quickshell 壁纸选择器共用切换脚本，无须先启动 `end4-pC`；相关依赖已写入软件包锁文件。
 
 ## 上游
 
