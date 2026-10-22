@@ -54,9 +54,21 @@ cd ~/dotfile
 
 直接运行 `./install.sh` 并按提示选择即可。覆盖前的配置保存在 `~/.local/state/dotfiles/backups/`。依赖自动安装仅支持 CachyOS。
 
-## 壁纸命令
+### end4-pC 自定义组件
 
-Fish 中的 `wallpaper` 命令支持图片和视频：
+仓库的 [`dotfiles-custom/end4-pC`](dotfiles-custom/end4-pC/README.md) 独立保存自定义小组件、原组件样式覆盖和设置页面。安装 `end4-pC` 后，从本仓库运行：
+
+```bash
+./dotfiles-custom/end4-pC/install-custom.sh
+```
+
+脚本会将自定义代码复制到 `~/.config/quickshell/end4-pC/custom/`，并为 Settings 和通知中心加入小型加载接口；可重复运行。打开 Settings → 自定义组件，可切换通知中心的自定义无通知样式（`notification_empty.png`、“暂无通知 / 好好休息一下吧~”），关闭开关则恢复上游样式。设置值单独保存在 `~/.config/illogical-impulse/custom-components.json`，不写入上游配置。
+
+自定义代码以仓库中的目录为准，不要直接编辑安装后的副本。更新上游 `end4-pC` 后重新运行上述脚本；如果接口补丁与新版代码冲突，脚本会停止，需要先调整补丁再安装。当前 `install.sh` 不会自动执行这一步。
+
+## 壁纸
+
+安装 `end4-pC` 配置后，可在 Fish 中用 `wallpaper` 切换图片或视频，无须启动 Quickshell：
 
 ```fish
 wallpaper ~/Pictures/wallpaper.jpg
@@ -64,9 +76,11 @@ wallpaper ~/Videos/wallpaper.mp4
 wallpaper "$HOME/Videos/Live Wallpapers/miku.webm"
 ```
 
-图片支持 PNG、JPG、JPEG、WebP 和 BMP；视频支持 MP4、MKV、WebM、MOV 和 AVI。
+命令支持 PNG、JPG、JPEG、WebP、BMP 图片，以及 MP4、MKV、WebM、MOV、AVI 视频。
 
-视频由 `mpvpaper` 播放，并由 FFmpeg 生成侧栏封面。`wallpaper` 与 Quickshell 壁纸选择器共用切换脚本，无须先启动 `end4-pC`；相关依赖已写入软件包锁文件。
+Quickshell 壁纸选择器同样支持视频：将视频放在图片目录下的 `Wallpapers` 文件夹，或在选择器中打开视频所在目录，即可看到带缩略图和播放标识的视频卡片，选中后切换。
+
+两种入口共用切换脚本，避免并发切换互相覆盖。视频由 `mpvpaper` 播放，FFmpeg 生成侧栏封面；相关依赖见 [`packages.lock`](dotfiles-meta/packages.lock)。选择安装 Quickshell 时，安装器会应用仓库中的 [end4-pC 壁纸补丁](dotfiles-meta/patches/end4-pC.patch)。更新上游版本后需重新检查该补丁。
 
 ## 上游
 

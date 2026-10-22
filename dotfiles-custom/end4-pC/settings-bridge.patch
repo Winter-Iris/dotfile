@@ -1,0 +1,112 @@
+diff --git a/services/SettingsPages.qml b/services/SettingsPages.qml
+--- a/services/SettingsPages.qml
++++ b/services/SettingsPages.qml
+@@ -21,10 +21,13 @@ Singleton {
+         if (WM.compositor === "hyprland")
+             list.push({ id: "hyprland", name: Translation.tr("Hyprland"), icon: "select_window_2", file: "HyprlandConfig.qml" });
+         if (WM.compositor === "niri")
+             list.push({ id: "niri", name: Translation.tr("Niri"), icon: "select_window_2", file: "NiriConfig.qml" });
++        list.push({ id: "custom", name: "自定义组件", icon: "widgets",
++            component: Qt.resolvedUrl("../custom/settings/CustomSettingsPage.qml"),
++            path: "custom/settings/CustomSettingsPage.qml" });
+         list.push({ id: "about", name: Translation.tr("About"), icon: "info", file: "About.qml" });
+         return list.map(page => Object.assign({}, page, {
+-            component: Qt.resolvedUrl("../" + root.pagesDir + page.file),
+-            path: root.pagesDir + page.file
++            component: page.component ?? Qt.resolvedUrl("../" + root.pagesDir + page.file),
++            path: page.path ?? root.pagesDir + page.file
+         }));
+     }
+diff --git a/modules/ii/settings/DashboardContent.qml b/modules/ii/settings/DashboardContent.qml
+--- a/modules/ii/settings/DashboardContent.qml
++++ b/modules/ii/settings/DashboardContent.qml
+@@ -24,7 +24,8 @@ Item {
+     readonly property int wallpapersPage: 1
+     readonly property bool wallpaperMode: currentPage === wallpapersPage
+     readonly property int homePage: 0
+     readonly property int settingsPage: 4
++    readonly property int customPage: 5
+     readonly property int presetsPage: 2
+     readonly property int mediaPage: 3
+     readonly property bool mediaVisible: currentPage === mediaPage && mediaState.displayedArtFilePath !== ""
+@@ -155,7 +156,8 @@ Item {
+         { name: Translation.tr("Wallpapers"), icon: "wallpaper" },
+         { name: Translation.tr("Presets"), icon: "hallway" },
+         { name: Translation.tr("Media"), icon: "play_circle" },
+-        { name: Translation.tr("Settings"), icon: "settings" }
++        { name: Translation.tr("Settings"), icon: "settings" },
++        { name: "自定义组件", icon: "widgets" }
+     ]
+ 
+     readonly property var layouts: [
+@@ -193,7 +195,7 @@ Item {
+     }
+ 
+     function buildPage(page) {
+-        if (page === mediaPage || page === homePage || page === settingsPage || page === wallpapersPage || page === presetsPage) return [];
++        if (page === mediaPage || page === homePage || page === settingsPage || page === customPage || page === wallpapersPage || page === presetsPage) return [];
+         const spans = layouts[page % layouts.length];
+         const pool = page === wallpapersPage ? shuffled(Wallpapers.wallpapers) : [];
+         return spans.map((s, i) => {
+@@ -560,7 +562,7 @@ Item {
+             id: boxGrid
+             Layout.fillWidth: true
+             Layout.fillHeight: true
+-            visible: root.currentPage !== root.mediaPage && root.currentPage !== root.homePage && root.currentPage !== root.settingsPage && root.currentPage !== root.wallpapersPage && root.currentPage !== root.presetsPage
++            visible: root.currentPage !== root.mediaPage && root.currentPage !== root.homePage && root.currentPage !== root.settingsPage && root.currentPage !== root.customPage && root.currentPage !== root.wallpapersPage && root.currentPage !== root.presetsPage
+             columns: 4
+             rowSpacing: 12
+             columnSpacing: 12
+@@ -688,6 +690,14 @@ Item {
+                 staggerMs: root.staggerMs
+             }
+         }
++
++        Loader {
++            Layout.fillWidth: true
++            Layout.fillHeight: true
++            visible: active
++            active: root.currentPage === root.customPage
++            source: Qt.resolvedUrl("../../../custom/settings/CustomSettingsPage.qml")
++        }
+ 
+         Loader {
+             id: homeLoader
+diff --git a/modules/ii/sidebarRight/notifications/NotificationList.qml b/modules/ii/sidebarRight/notifications/NotificationList.qml
+--- a/modules/ii/sidebarRight/notifications/NotificationList.qml
++++ b/modules/ii/sidebarRight/notifications/NotificationList.qml
+@@ -33,19 +33,33 @@ Item {
+     // Placeholder when list is empty
+     Item {
++        id: emptyPlaceholder
++        readonly property bool customEmptyState: customConfig.item?.options?.customNotificationEmptyState ?? true
+         anchors {
+             left: parent.left
+             right: parent.right
+             top: parent.top
+             bottom: statusRow.top
+             bottomMargin: 5
+         }
+ 
++        Loader {
++            id: customConfig
++            source: Qt.resolvedUrl("../../../../custom/CustomConfig.qml")
++            visible: false
++        }
++
++        Loader {
++            anchors.fill: parent
++            active: Notifications.list.length === 0 && emptyPlaceholder.customEmptyState
++            source: Qt.resolvedUrl("../../../../custom/overrides/NotificationEmptyState.qml")
++        }
++
+         PagePlaceholder {
+-            shown: Notifications.list.length === 0
++            shown: Notifications.list.length === 0 && !emptyPlaceholder.customEmptyState
+             icon: "notifications_active"
+             description: Translation.tr("Nothing")
+             shape: MaterialShape.Shape.Ghostish
+             descriptionHorizontalAlignment: Text.AlignHCenter
+             minIconHeight: 130
+         }
+     }
